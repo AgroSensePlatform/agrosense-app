@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <img alt="Quasar logo" src="~assets/quasar-logo-vertical.svg" style="width: 200px; height: 200px">
+    <img alt="Quasar logo" src="~assets/agrosense-logo.png" style="width: 200px; height: 100px">
     <div v-if="isLoggedIn">
       <h1>Welcome, {{ user.name }}!</h1>
     </div>
