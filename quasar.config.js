@@ -3,7 +3,7 @@
 
 import { defineConfig } from '#q-app/wrappers'
 
-export default defineConfig((/* ctx */) => {
+export default defineConfig((ctx) => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
@@ -55,6 +55,14 @@ export default defineConfig((/* ctx */) => {
 
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
+
+      env: {
+        API_BASE_URL: ctx.dev
+          ? ctx.modeName === 'capacitor' && ctx.targetName === 'android'
+            ? 'http://10.0.2.2:8000/api' // Android emulator during development
+            : 'http://127.0.0.1:8000/api' // Local development
+          : 'https://your-production-url.com/api', // Production URL
+      },
 
       vitePlugins: [
         [
