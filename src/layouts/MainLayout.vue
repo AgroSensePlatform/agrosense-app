@@ -18,7 +18,18 @@
           Essential Links
         </q-item-label>
 
-        <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" />
+        <!-- Use router-link for navigation -->
+        <router-link v-for="link in linksList" :key="link.title" :to="link.link" class="router-link">
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon :name="link.icon" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>{{ link.title }}</q-item-label>
+              <q-item-label caption>{{ link.caption }}</q-item-label>
+            </q-item-section>
+          </q-item>
+        </router-link>
       </q-list>
     </q-drawer>
 
@@ -30,7 +41,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
 
 // Reactive property to track user authentication status
 const isLoggedIn = ref(false)
@@ -85,3 +95,11 @@ function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
 </script>
+
+<style scoped>
+/* Remove default router-link styles */
+.router-link {
+  text-decoration: none;
+  color: inherit;
+}
+</style>
