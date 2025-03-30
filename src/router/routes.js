@@ -7,13 +7,33 @@ const routes = [
       { path: 'login', component: () => import('pages/LoginPage.vue') },
       { path: 'register', component: () => import('pages/RegisterPage.vue') },
       {
-        path: 'personal-info',
-        component: () => import('pages/PersonalInfoPage.vue'),
+        path: 'dashboard',
+        component: () => import('pages/DashboardPage.vue'),
         meta: { requiresAuth: true },
       },
       {
-        path: 'dashboard',
-        component: () => import('pages/DashboardPage.vue'),
+        path: 'farms',
+        component: () => import('pages/FarmsPage.vue'),
+        meta: { requiresAuth: true },
+      },
+      {
+        path: 'sensors',
+        component: () => import('pages/SensorsPage.vue'),
+        meta: { requiresAuth: true },
+      },
+      {
+        path: 'history',
+        component: () => import('pages/HistoryPage.vue'),
+        meta: { requiresAuth: true },
+      },
+      {
+        path: 'account',
+        component: () => import('pages/AccountPage.vue'),
+        meta: { requiresAuth: true },
+      },
+      {
+        path: 'logout',
+        component: () => import('pages/LogoutPage.vue'),
         meta: { requiresAuth: true },
       },
     ],
