@@ -29,12 +29,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
 
-// Simulating user authentication status
-// Replace this with your actual authentication logic
-const isLoggedIn = ref(false) // Set to true when the user is logged in
+// Reactive property to track user authentication status
+const isLoggedIn = ref(false)
+
+// Check for token in localStorage to determine login status
+onMounted(() => {
+  isLoggedIn.value = !!localStorage.getItem('token') // Set to true if token exists
+})
 
 const linksList = [
   {
