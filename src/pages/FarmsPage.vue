@@ -6,13 +6,13 @@
     </div>
 
     <q-list>
-      <q-item v-for="farm in farms" :key="farm.id" clickable v-ripple bordered :to="{ path: `/farms/${farm.id}` }">
+      <q-item class="bg-grey-2 q-mb-md q-mt-md" v-for="farm in farms" :key="farm.id" clickable v-ripple bordered
+        :to="{ path: `/farms/${farm.id}` }">
         <q-item-section avatar>
           <q-icon name="agriculture" />
         </q-item-section>
         <q-item-section>
           <q-item-label>{{ farm.name }}</q-item-label>
-          <q-item-label caption>{{ farm.location }}</q-item-label>
         </q-item-section>
       </q-item>
     </q-list>
