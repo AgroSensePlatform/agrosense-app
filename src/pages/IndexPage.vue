@@ -11,10 +11,18 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 const isLoggedIn = ref(false);
+const router = useRouter();
 
 onMounted(() => {
-  isLoggedIn.value = !!localStorage.getItem('token');
+  const token = localStorage.getItem('token');
+  isLoggedIn.value = !!token;
+
+  // Redirect to Dashboard if logged in
+  if (isLoggedIn.value) {
+    router.push('/dashboard');
+  }
 });
 </script>
