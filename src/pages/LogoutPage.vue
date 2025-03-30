@@ -1,11 +1,13 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import { isLoggedIn } from 'stores/authState';
 
 // Use Vue Router to handle redirection
 const router = useRouter();
 
 // Clear the token from localStorage and redirect to the index page
-localStorage.removeItem('token'); // Remove the token
+localStorage.removeItem('token'); // Clear the token
+isLoggedIn.value = false; // Update the global state
 router.push('/'); // Redirect to the index page
 </script>
 

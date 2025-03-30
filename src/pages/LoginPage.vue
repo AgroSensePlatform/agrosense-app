@@ -19,6 +19,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { api } from 'boot/axios';
+import { isLoggedIn } from 'stores/authState';
 
 const email = ref('');
 const password = ref('');
@@ -34,6 +35,7 @@ const login = async () => {
     });
 
     localStorage.setItem('token', response.data.token);
+    isLoggedIn.value = true; // Update the global state
     router.push('/dashboard');
   } catch (error) {
     console.error('Login failed', error);
