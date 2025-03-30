@@ -36,6 +36,11 @@ const routes = [
         component: () => import('pages/LogoutPage.vue'),
         meta: { requiresAuth: true },
       },
+      {
+        path: '/farms/add',
+        component: () => import('pages/AddFarmPage.vue'),
+        meta: { requiresAuth: true },
+      },
     ],
   },
 
