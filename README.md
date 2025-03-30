@@ -1,8 +1,6 @@
-# agrosense (agrosense)
-
 # AgroSense App (Android Frontend)
 
-**AgroSense** is a smart agriculture mobile application built using the [Quasar Framework](https://quasar.dev/) (Vue.js + Cordova), designed to assist farmers in managing their fields and IoT soil sensors effectively. The app interacts with a Laravel backend through RESTful APIs and provides a mobile-first experience tailored for on-the-field use.
+**AgroSense** is a smart agriculture mobile application built using the [Quasar Framework](https://quasar.dev/) (Vue.js) in combination with [Capacitor](https://capacitorjs.com/). The app is designed to assist farmers in managing their fields and IoT soil sensors effectively. It interacts with a Laravel backend through RESTful APIs and provides a mobile-first experience tailored for on-the-field use.
 
 ---
 
@@ -35,7 +33,7 @@
 
 - [Quasar Framework](https://quasar.dev/)
 - [Vue.js](https://vuejs.org/)
-- [Cordova](https://cordova.apache.org/)
+- [Capacitor](https://capacitorjs.com/) for native builds
 - [Axios](https://axios-http.com/) for API calls
 - [Vue Router](https://router.vuejs.org/) for navigation
 
