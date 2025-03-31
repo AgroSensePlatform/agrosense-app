@@ -37,6 +37,7 @@
 import { ref } from 'vue';
 import { api } from 'boot/axios';
 import { useRouter } from 'vue-router';
+import { Geolocation } from '@capacitor/geolocation';
 
 const farmName = ref('');
 const coordinatesList = ref([]);
@@ -46,23 +47,12 @@ const router = useRouter();
 // Save the current GPS coordinates
 const saveCoordinates = async () => {
   try {
-    if (!navigator.geolocation) {
-      throw new Error('Geolocation is not supported by your browser.');
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        coordinatesList.value.push({ latitude, longitude });
-      },
-      (error) => {
-        console.error('Failed to get GPS coordinates', error);
-        errorMessage.value = 'Failed to get GPS coordinates. Please try again.';
-      }
-    );
+    const position = await Geolocation.getCurrentPosition();
+    const { latitude, longitude } = position.coords;
+    coordinatesList.value.push({ latitude, longitude });
   } catch (error) {
-    console.error(error.message);
-    errorMessage.value = error.message;
+    console.error('Failed to get GPS coordinates', error);
+    errorMessage.value = 'Failed to get GPS coordinates. Please try again.' + error.message;
   }
 };
 
